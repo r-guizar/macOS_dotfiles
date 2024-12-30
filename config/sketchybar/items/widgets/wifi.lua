@@ -151,27 +151,27 @@ local widget_spacing = sbar.add("item", {
   }
 })
 
-local native_wifi = sbar.add("alias", "Control Center,WiFi", {
+-- local native_wifi = sbar.add("alias", "Control Center,WiFi", {
   
-  position = "right",
-  y_offset = -1,
-  padding_left = -8,
-  click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0",
+--   position = "right",
+--   y_offset = -1,
+--   padding_left = -8,
+--   click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0",
 
-  alias = {
-      color = colors.white,
-      update_freq = 1,
-      scale = 0.8,
-  },
+--   alias = {
+--       color = colors.white,
+--       update_freq = 1,
+--       scale = 0.8,
+--   },
 
-  background = {
-      height = 22,
-      color = colors.transparent,
-      border_color = colors.transparent,
-      border_width = 1,
-      corner_radius = 9,
-  }
-})
+--   background = {
+--       height = 22,
+--       color = colors.transparent,
+--       border_color = colors.transparent,
+--       border_width = 1,
+--       corner_radius = 9,
+--   }
+-- })
 
 local wifi_up = sbar.add("item", "widgets.wifi1", {
   
@@ -206,6 +206,8 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
   label = {
 
     -- string = icons.wifi.connected,
+    padding_right = 5,
+    y_offset = 1,
     align = "center",
 
     font = {
@@ -230,8 +232,10 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
   background = {
 
     height = 22,
-    color = colors.transparent,
-    border_color = colors.transparent,
+    color = colors.bg2,
+    border_color = colors.grey,
+    -- color = colors.transparent,
+    -- border_color = colors.transparent,
     border_width = 1,
     corner_radius = 9,
 
@@ -254,19 +258,19 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
   
 })
 
-local wifi_bracket = sbar.add("bracket", "widgets.wifi_bracket", { wifi_up.name, native_wifi.name }, {
+-- local wifi_bracket = sbar.add("bracket", "widgets.wifi_bracket", { wifi_up.name, native_wifi.name }, {
 
-  background = {
+--   background = {
     
-    height = 22,
-    color = colors.bg2,
-    border_color = colors.grey,
-    border_width = 1,
-    corner_radius = 9,
+--     height = 22,
+--     color = colors.bg2,
+--     border_color = colors.grey,
+--     border_width = 1,
+--     corner_radius = 9,
 
-  },
+--   },
 
-})
+-- })
 
 wifi_up:subscribe({"wifi_change", "system_woke"}, function(env)
   
@@ -296,21 +300,30 @@ wifi_up:subscribe({"wifi_change", "system_woke"}, function(env)
 
         width = connected and "dynamic" or 0,
         padding_left = connected and 5 or 0,
-        padding_right = connected and 3 or 9,
+        padding_right = connected and 3 or 0,
+
+      },
+
+      label = {
+        
+        padding_left = connected and 0 or 4,
+        string = connected and icons.wifi.connected or icons.wifi.disconnected,
+        color = connected and colors.white or colors.red,
 
       },
 
     })
 
-    native_wifi:set({
+    -- native_wifi:set({
       
-      padding_left = connected and -8 or 0,
+    --   padding_left = connected and -8 or 0,
 
-      alias = { 
-        color = connected and colors.white or colors.red,
-      }
+    --   alias = { 
+    --     color = connected and colors.white or colors.red,
+    --   }
 
-    })
+    -- })
+
   end)
 end)
 
