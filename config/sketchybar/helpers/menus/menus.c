@@ -53,7 +53,6 @@ void print_menu_bar_items() {
 
     // Get the menu bar
     AXError error = AXUIElementCopyAttributeValue(systemWide, kAXMenuBarAttribute, (CFTypeRef *)&menuBar);
-    printf("Error: %d\n", error);
     if (error == kAXErrorSuccess && menuBar) {
         CFArrayRef menuBarItems = NULL;
 
