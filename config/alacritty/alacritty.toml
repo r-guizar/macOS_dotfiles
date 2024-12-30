@@ -1,0 +1,69 @@
+[general]
+working_directory = "/Users/richardguizar/Desktop"
+live_config_reload = true
+ipc_socket = true
+
+# [env]
+
+[window]
+decorations = "Buttonless"
+opacity = 0.5
+blur = true
+# decorations_theme_variant = "Dark"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "MesloLGS NF", style = "Regular"}
+bold = { family = "MesloLGS NF", style = "Bold"}
+italic = { family = "MesloLGS NF", style = "Italic"}
+bold_italic = { family = "MesloLGS NF", style = "Bold Italic"}
+size = 11.0
+
+[colors]
+primary.foreground = "#ffffff"
+primary.background = "#000000"
+cursor = { text = "#000000", cursor = "#ffffff" }
+search.matches = { foreground = "#000000", background = "#fcfc26" }
+search.focused_match = { foreground = "#ffffff", background = "#ff0000" }
+
+# hints = { start = { foreground = "#00ff00", background = "#fcfc26" }, end = { foreground = "#000000", background = "#fcfc26" } }
+
+line_indicator = { foreground = "#ff0000", background = "#ff0000" }
+footer_bar = { foreground = "#000000", background = "#00afff" }
+selection = { text = "#ffffff", background = "#9b56a3" }
+
+normal = { black = "#303030", red = "#b4422c", green = "#60b942", yellow = "#afad42", blue = "#4c38d8", magenta = "#c44bcc", cyan = "#5fb8c5", white = "#cccccc" }
+
+bright = { black = "#828282", red = "#f0411f", green = "#54de26", yellow = "#e8e523", blue = "#3e23eb", magenta = "#dd23eb", cyan = "#1fd4f0", white = "#f5f5f5" }
+
+# indexed_colors = [ { index = 39, color = "#ffffff" } ]
+
+transparent_background_colors = false
+draw_bold_text_with_bright_colors = true
+
+# [bell]
+
+
+# [selection]
+
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = false
+
+# [terminal]
+
+
+[mouse]
+hide_when_typing = true
+
+# [hints]
+
+
+# [keyboard]
+
+
+# [debug]

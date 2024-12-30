@@ -1,0 +1,90 @@
+# Needed everytime macbook is restarted, doesnt work needs root
+# sudo yabai --load-sa
+
+# Unload the macOS WindowManager process
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+
+# Exclude problematic apps from being managed:
+yabai -m rule --add app="^(LuLu|Calculator|Software Update|Dictionary|System Preferences|System Settings|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Stickies)$" manage=off
+# yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add app="^(Finder|VirtualBox|Preview|Discord)$" manage=off
+yabai -m rule --add label="Ghidra" app="Ghidra" title="^Ghidra: .*$" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Select file to save to" app=".*" title="Select file to save to" manage=off
+yabai -m rule --add label="Preferences" app=".*" title="Preferences|Settings" manage=off
+yabai -m rule --add label="Select file to open" app="Google Chrome" title="^$" manage=off
+
+# Remove the MacOS menu bar from the Desktop view
+yabai -m config menubar_opacity 0.0
+
+# Use the Binary Space Partitioning algo for tiling windows
+yabai -m config layout bsp
+
+# Set the sketchybar padding as 30 pixels to look like the native menu bar
+yabai -m config external_bar main:30:0
+
+# Focusing
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
+yabai -m signal --add event=window_destroyed action="yabai -m window --focus recent || yabai -m window --focus next"
+# yabai -m signal --add event=window_minimized action="yabai -m window --focus recent || yabai -m window --focus next"
+
+# New windows get created below the current window if splitting horizontally or the right if vertically
+yabai -m config window_placement second_child
+
+# Windows will not keep their zoom-state through layout changes
+yabai -m config window_zoom_persist off
+
+# Window opacities
+yabai -m config window_opacity on
+yabai -m config window_opacity_duration 0.2
+yabai -m config active_window_opacity 1.00
+yabai -m config normal_window_opacity 0.8
+
+# Window splits
+yabai -m config split_ratio 0.50
+yabai -m config split_type auto
+
+# Swap windows with fn + mouse click
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+
+# Do not balance the window tree upon change, so that all windows occupy the same area
+yabai -m config auto_balance off
+
+# Padding
+yabai -m config top_padding 2
+yabai -m config bottom_padding 3
+yabai -m config left_padding 3
+yabai -m config right_padding 3
+yabai -m config window_gap 5
+
+# Window shadow
+# yabai -m config window_shadow on
+
+# These are only for multi montior setups
+# display_arrangement_order
+# window_origin_display
+
+# Sketchybar config for spaces
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=display_added action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+borders 								\
+	style=round							\
+	width=5.0							\
+	hidpi=off							\
+	inactive_color=0xff414550			\
+	blur_radius=50						\
+	blacklist="System Settings"			\
+	ax_focus=on							\
+	&
+
+# active_color="gradient(top_left=0xff03f4fc,bottom_right=0xff9003fc)"	\
+# active_color=0xff7aa2f7				\
