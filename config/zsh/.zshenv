@@ -25,4 +25,7 @@ export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # export spicetify
-export PATH=$PATH:/Users/richardguizar/.spicetify
+export PATH="$PATH:/Users/richardguizar/.spicetify"
+
+#export pwndbg
+export PATH="$PATH:/Users/richardguizar/pwndbg/bin"
