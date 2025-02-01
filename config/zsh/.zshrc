@@ -25,7 +25,7 @@ alias ll="ls -l"
 alias lah="ls -laH"
 
 alias gcc="gcc-14"
-alias nano="/usr/local/bin/nano"
+alias nano="/usr/local/bin/nano -f ~/.config/nano/nanorc"
 
 # completion for hidden files
 autoload -U compinit; compinit
