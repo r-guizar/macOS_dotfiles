@@ -1,4 +1,5 @@
 #set linenumbers
+#set numbercolor yellow,normal
 set afterends
 
 bind M-F nextword all
