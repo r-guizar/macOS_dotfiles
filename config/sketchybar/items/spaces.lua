@@ -150,7 +150,7 @@ local space_window_observer = sbar.add("item", {
 
 local spaces_indicator = sbar.add("item", {
   padding_left = -3,
-  padding_right = 0,
+  padding_right = 5,
   icon = {
     padding_left = 8,
     padding_right = 9,
