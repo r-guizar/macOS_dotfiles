@@ -27,6 +27,9 @@ alias lah="ls -laH"
 alias gcc="gcc-14"
 alias nano="/usr/local/bin/nano -f ~/.config/nano/nanorc"
 
+(( $+aliases[run-help] )) && unalias run-help
+autoload -Uz run-help
+
 # completion for hidden files
 autoload -U compinit; compinit
 
