@@ -651,8 +651,8 @@ wifi_up_graph:subscribe("network_update", function(env)
   local up_color = colors.red
   local down_color = colors.blue
 
-  wifi_up_graph:push({ upload_value / (2 * 100 * 1024 ^ 2) })
-  wifi_down_graph:push({ download_value / (2 * 100 * 1024 ^ 2) })
+  wifi_up_graph:push({ upload_value / (2 * 10 * 1024 ^ 2) })
+  wifi_down_graph:push({ download_value / (2 * 10 * 1024 ^ 2) })
 
   local printed_upload = strip_leading_zeroes(final_upload_value) .. " " .. upload_init .. "Bps"
   local printed_download = strip_leading_zeroes(final_download_value) .. " " .. download_init .. "Bps"
