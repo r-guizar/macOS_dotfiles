@@ -63,7 +63,11 @@ hide_when_typing = true
 # [hints]
 
 
-# [keyboard]
-
+[keyboard]
+bindings = [
+  { key = "Left",  mods = "Option", chars = "\u001bb" }, # Move to the previous word
+  { key = "Right", mods = "Option", chars = "\u001bf" }, # Move to the next word
+]
 
 # [debug]
+
