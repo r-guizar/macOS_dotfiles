@@ -1,5 +1,5 @@
 # Needed everytime macbook is restarted, doesnt work needs root
-# sudo yabai --load-sa
+sudo yabai --load-sa
 
 # Unload the macOS WindowManager process
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
@@ -8,7 +8,7 @@
 yabai -m rule --add app="^(LuLu|Calculator|Software Update|Dictionary|System Preferences|System Settings|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Stickies)$" manage=off
 # yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add app="^(Finder|VirtualBox|Preview|Discord)$" manage=off
-yabai -m rule --add label="Ghidra" app="Ghidra" title="^Ghidra: .*$" manage=off
+yabai -m rule --add label="Ghidra" app="Ghidra" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Select file to save to" app=".*" title="Select file to save to" manage=off
@@ -22,7 +22,7 @@ yabai -m config menubar_opacity 0.0
 yabai -m config layout bsp
 
 # Set the sketchybar padding as 30 pixels to look like the native menu bar
-yabai -m config external_bar main:30:0
+yabai -m config external_bar all:30:0
 
 # Focusing
 yabai -m config mouse_follows_focus off
