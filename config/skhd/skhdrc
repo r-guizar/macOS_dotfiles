@@ -84,8 +84,8 @@ cmd + alt - h : yabai -m space --create && yabai -m window --space last && yabai
 :: resize @ : borders active_color=0xfff7768e
 
 # switch modes
-cmd + alt - v ; resize
-resize < cmd + alt - v ; default
+cmd + alt - v ; default
+default < cmd + alt - v ; resize
 
 # resize commands
 resize < left : yabai -m window --resize left:-10:0; \
