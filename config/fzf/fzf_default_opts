@@ -1,0 +1,58 @@
+# Layout
+--style full
+--border=rounded
+--padding 1,0,0,0
+--border-label="╢ Fuzzy Finder ╟"
+--color 'border:#ffffff,label:#ffffff'
+
+# List
+--cycle
+--highlight-line
+--keep-right
+--no-hscroll
+--pointer='❱'
+--no-scrollbar
+--list-border=rounded
+--bind 'result:transform-list-label:
+  if [[ -z $FZF_QUERY ]]; then
+    echo "╢ $FZF_MATCH_COUNT items ╟"
+  else
+    echo "╢ $FZF_MATCH_COUNT matches for [$FZF_QUERY] ╟"
+  fi
+  '
+--color 'list-border:39,list-label:39'
+--color 'bg+:#cf00ff,gutter:-1'
+--color 'marker:#cf00ff,pointer:#ffffff'
+--color 'list-fg:39'
+--color 'current-fg:#ffffff'
+--color 'selected-fg:#cf00ff'
+--color 'current-hl:#30ff00'
+--color 'hl:#30ff00'
+
+# Input
+--prompt='❱ '
+#--info-command='echo -e "$FZF_INFO"'
+--ghost='Start searching or whatever'
+--filepath-word
+--input-border=rounded
+--input-label='╢ Input ╟'
+--color 'input-border:#ff5000,input-label:#ff5000'
+--color 'prompt:#ff5000,spinner:#ffffff,info:#ffffff'
+
+# Preview
+#--preview='bat --line-range=:100 {}'
+#--preview-border=rounded
+#--bind 'focus:transform-preview-label:[[ -n {} ]] && printf "╢ Previewing [%s] ╟" {}'
+#--preview-window='~4'
+#--color 'preview-border:#30ff00,preview-label:#30ff00'
+#--color 'preview-fg:#ffffff'
+
+# Header
+--bind 'focus:+transform-header:file --brief {} || echo "No file selected"'
+--header-label="╢ File Type ╟"
+--header-border=rounded
+--color 'header-border:#cf00ff,header-label:#cf00ff'
+--color 'header-fg:#ffffff'
+
+# Footer
+#--footer="Footer"
