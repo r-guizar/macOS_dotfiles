@@ -27,6 +27,9 @@ alias lah="ls -laH"
 alias gcc="gcc-14"
 alias nano="/usr/local/bin/nano -f ~/.config/nano/nanorc"
 
+alias grep="grep --color=always -E"
+alias less="less -K --mouse"
+
 (( $+aliases[run-help] )) && unalias run-help
 autoload -Uz run-help
 
@@ -125,3 +128,14 @@ export LSCOLORS="${DIR_FG}${DIR_BG}${SYM_FG}${SYM_BG}${SOCK_FG}${SOCK_BG}${PIPE_
 
 # enable grep colors
 export GREP_OPTIONS='--color=auto'
+
+# fzf
+#source $ZDOTDIR/zsh_sources/fzf_funcs.zsh
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/fzf_default_opts
+
+# zsh-interactive-cd
+source $ZDOTDIR/zsh_sources/zsh-interactive-cd.plugin.zsh
+
+# Use bat for man
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
