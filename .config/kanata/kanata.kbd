@@ -1,0 +1,52 @@
+(defcfg
+	process-unmapped-keys yes
+)
+
+(defsrc
+	esc	f1	f2	f3	f4	f5	f6	f7	f8	f9	f10	f11	f12
+	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
+	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
+	⇪	a	s	d	f	g	h	j	k	l	;	'		ret
+	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
+	fn	‹⌃	‹⌥	‹⌘			spc		⌘›	⌥›	←	↑	↓	→
+)
+
+(defvar
+	tap-time 200
+	hold-time 350
+)
+
+(defalias
+	a-l (tap-hold $tap-time $hold-time a (layer-while-held nav))
+
+	s (tap-hold $tap-time $hold-time s ‹⌃)
+	d (tap-hold $tap-time $hold-time d ‹⌥)
+	f (tap-hold $tap-time $hold-time f ‹⌘)
+
+	j (tap-hold $tap-time $hold-time j rmet)
+	k (tap-hold $tap-time $hold-time k ralt)
+	l (tap-hold $tap-time $hold-time l lctl)
+
+	jn (tap-hold $tap-time $hold-time j ←)
+	kn (tap-hold $tap-time $hold-time k ↑)
+	ln (tap-hold $tap-time $hold-time l ↓)
+	;n (tap-hold $tap-time $hold-time ; →)
+)
+
+(deflayer base
+	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
+	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
+	XX	q	w	e	r	t	y	u	i	o	p	[	]	\
+	↹	@a-l	@s	@d	@f	g	h	@j	@k	@l	;	'		ret
+	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
+	fn	XX	XX	XX			spc		XX	XX	←	↑	↓	→
+)
+
+(deflayer nav
+	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
+	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
+	XX	q	w	e	r	t	y	u	i	o	p	[	]	\
+	↹	a	@s	@d	@f	g	←	↑	↓	→	;	'		ret
+	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
+	fn	XX	XX	XX			spc		XX	XX	←	↑	↓	→	
+)
