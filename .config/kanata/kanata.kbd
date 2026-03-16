@@ -6,47 +6,53 @@
 	esc	f1	f2	f3	f4	f5	f6	f7	f8	f9	f10	f11	f12
 	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
 	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
-	⇪	a	s	d	f	g	h	j	k	l	;	'		ret
+	⇪	a	s	d	f	g	h	j	k	l	;	'		↵
 	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
-	fn	‹⌃	‹⌥	‹⌘			spc		⌘›	⌥›	←	↑	↓	→
+	fn	‹⌃	‹⌥	‹⌘			spc			⌘›	⌥›	←  ↑  ↓  →
 )
 
 (defvar
 	tap-time 200
-	hold-time 350
+	hold-time 225
+	shift-time 175
+	hyper (multi lmet lalt lshft lctl)
+	meh (multi lalt lshft lctl)
+	shifted-list (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 bspc del kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 up down left right)
+	non-terminal-list (spc lmet lalt lctl)
 )
 
 (defalias
-	a-l (tap-hold $tap-time $hold-time a (layer-while-held nav))
+	hy (tap-dance 250 ($hyper $meh))
+	spl (tap-hold $tap-time $hold-time spc (layer-while-held nav))
 
-	s (tap-hold $tap-time $hold-time s ‹⌃)
-	d (tap-hold $tap-time $hold-time d ‹⌥)
-	f (tap-hold $tap-time $hold-time f ‹⌘)
+	a (tap-hold $tap-time $hold-time a ‹⌃)
+	s (tap-hold $tap-time $hold-time s ‹⌥)
+	d (tap-hold $tap-time $hold-time d ‹⌘)
+	f (tap-hold $tap-time $shift-time f ‹⇧)
 
-	j (tap-hold $tap-time $hold-time j rmet)
-	k (tap-hold $tap-time $hold-time k ralt)
-	l (tap-hold $tap-time $hold-time l lctl)
+	j (tap-hold $tap-time $shift-time j ⇧›)
+	k (tap-hold $tap-time $hold-time k ⌘›)
+	l (tap-hold $tap-time $hold-time l ⌥›)
+	; (tap-hold $tap-time $hold-time ; ‹⌃)
 
-	jn (tap-hold $tap-time $hold-time j ←)
-	kn (tap-hold $tap-time $hold-time k ↑)
-	ln (tap-hold $tap-time $hold-time l ↓)
-	;n (tap-hold $tap-time $hold-time ; →)
+	cw (caps-word-custom-toggle 2000 $shifted-list $non-terminal-list)
+	cp RM-c
 )
 
 (deflayer base
 	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
 	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
-	XX	q	w	e	r	t	y	u	i	o	p	[	]	\
-	↹	@a-l	@s	@d	@f	g	h	@j	@k	@l	;	'		ret
-	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
-	fn	XX	XX	XX			spc		XX	XX	←	↑	↓	→
+	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
+	@hy	@a	@s	@d	@f	g	h	@j	@k	@l	@;	'		↵
+	⇪		z	x	c	v	b	n	m	,	.	/		⇧›
+	fn	XX	XX	@hy			@spl		XX	XX	←  ↑  ↓  →
 )
 
 (deflayer nav
 	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
 	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
-	XX	q	w	e	r	t	y	u	i	o	p	[	]	\
-	↹	a	@s	@d	@f	g	←	↑	↓	→	;	'		ret
-	‹⇧		z	x	c	v	b	n	m	,	.	/		⇧›
-	fn	XX	XX	XX			spc		XX	XX	←	↑	↓	→	
+	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
+	XX	@a	@s	@d	@cw	g	←	↑	↓	→	;	'		↵
+	⇪		z	x	@cp	v	b	n	⌫	,	.	/		⇧›
+	fn	XX	XX	XX			spc			XX	XX	←  ↑  ↓  →	
 )
