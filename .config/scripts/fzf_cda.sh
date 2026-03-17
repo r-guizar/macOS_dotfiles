@@ -1,19 +1,35 @@
 #!/usr/bin/env bash
 
-# fd - cd to selected directory
-base_dir="${1:-.}"
+# If run from tmux, cd into the pane's current directory
+if [ -n "$TMUX" ]; then
+    pane_path=$(tmux display-message -p -F "#{pane_current_path}")
+    cd "$pane_path" || exit 1
+fi
 
-dir=$(fd --hidden --max-depth 4 --type d . "$base_dir" \
-  | sed "s|^$base_dir||" \
+# fd - cd to selected directory
+base_dir="${1:-./}"
+
+if [[ $base_dir == $HOME ]]; then
+    sed_cmd='sed "s|^$HOME|~|"'
+else
+    sed_cmd='sed "s|^$base_dir||"'
+fi
+
+dir=$(fd --hidden --max-depth 10 --type d . "$base_dir" \
+  | sed "s|^$HOME|~|" \
   | fzf --tmux +m)
 
-full_path="${base_dir%/}/${dir#/}"
+if [ "${dir#*~}" != "$dir" ]; then
+  tilde="~"
+  dir="${HOME}${dir#$tilde}"
+fi
 
-if [[ "$full_path" == "${base_dir%/}/" ]]; then
+if [[ -z $dir ]]; then
+  print "exiting"
   exit 0
 elif [[ -n "$TMUX" ]]; then
   original_pane=$(tmux display -p '#{pane_id}')
-  tmux send-keys -t "$original_pane" "cd \"$full_path\"" Enter
+  tmux send-keys -t "$original_pane" "cd \"$dir\"" Enter
 else
-  cd "$full_path"
+  cd "$dir"
 fi
