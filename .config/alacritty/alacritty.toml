@@ -1,5 +1,5 @@
 [general]
-working_directory = "/Users/richardguizar/Desktop"
+working_directory = "/Users/rguizar/"
 live_config_reload = true
 ipc_socket = true
 
@@ -9,6 +9,7 @@ ipc_socket = true
 decorations = "Buttonless"
 opacity = 0.5
 blur = true
+option_as_alt = "Both"
 # decorations_theme_variant = "Dark"
 
 [scrolling]
@@ -16,10 +17,10 @@ history = 10000
 multiplier = 3
 
 [font]
-normal = { family = "MesloLGS NF", style = "Regular"}
-bold = { family = "MesloLGS NF", style = "Bold"}
-italic = { family = "MesloLGS NF", style = "Italic"}
-bold_italic = { family = "MesloLGS NF", style = "Bold Italic"}
+normal = { family = "MesloLGS Nerd Font Mono", style = "Regular"}
+bold = { family = "MesloLGS Nerd Font Mono", style = "Bold"}
+italic = { family = "MesloLGS Nerd Font Mono", style = "Italic"}
+bold_italic = { family = "MesloLGS Nerd Font Mono", style = "Bold Italic"}
 size = 11.0
 
 [colors]
@@ -67,7 +68,10 @@ hide_when_typing = true
 bindings = [
   { key = "Left",  mods = "Option", chars = "\u001bb" }, # Move to the previous word
   { key = "Right", mods = "Option", chars = "\u001bf" }, # Move to the next word
+#  { key = "h", mods = "Control|Option", chars = "\u001b\u005BD"},
+#  { key = "j", mods = "Control|Option", chars = "\u001b\u005BB"},
+#  { key = "k", mods = "Control|Option", chars = "\u001b\u005BA"},
+#  { key = "l", mods = "Control|Option", chars = "\u001b\u005BC"}
 ]
 
 # [debug]
-
