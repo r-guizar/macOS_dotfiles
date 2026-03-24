@@ -1,6 +1,6 @@
 # default mode is a blue border
-#:: default : borders active_color="gradient(top_left=0xff7aa2f7,bottom_right=0xff7bb3ff)"
 :: default : borders active_color="gradient(top_left=0xff03f4fc,bottom_right=0xff9003fc)"
+
 ### Misc ###
 
 # sleep
@@ -35,19 +35,18 @@ hyper - g : \
 
 # focusing windows
 hyper - h : yabai -m window --focus west
-hyper - j : yabai -m window --focus south
-hyper - k : yabai -m window --focus north
+hyper - j : yabai -m window --focus north
+hyper - k : yabai -m window --focus south
 hyper - l : yabai -m window --focus east
 
 # moving windows
 meh - h : yabai -m window --swap west
-meh - j : yabai -m window --swap south
-meh - k : yabai -m window --swap north
+meh - j : yabai -m window --swap north
+meh - k : yabai -m window --swap south
 meh - l : yabai -m window --swap east
 
 # rotate windows
-hyper - l : yabai -m space --rotate 90
-hyper - 0x29 : yabai -m space --rotate 270
+hyper - 0x29 : yabai -m space --rotate 270      # hyper + semicolon
 
 # focus on spaces by number
 hyper - 1 : yabai -m space --focus 1
@@ -78,11 +77,8 @@ hyper - m : yabai -m space --create && yabai -m space --focus last
 hyper - n : yabai -m space --destroy
 
 # move between spaces
-hyper - k : yabai -m space --focus next
-hyper - j : yabai -m space --focus prev
-
-#0x1DF : yabai -m space --focus next
-#0x1E1 : yabai -m space --focus prev
+hyper - f : yabai -m space --focus next
+hyper - d : yabai -m space --focus prev
 
 # create a new space, move the current window to it and focus it
 hyper - h : yabai -m space --create && yabai -m window --space last && yabai -m space --focus last
@@ -91,7 +87,6 @@ hyper - h : yabai -m space --create && yabai -m window --space last && yabai -m 
 :: resize @ : borders active_color=0xfff7768e
 
 # switch modes
-#hyper - v ; default
 resize < hyper - v ; default
 default < hyper - v ; resize
 
