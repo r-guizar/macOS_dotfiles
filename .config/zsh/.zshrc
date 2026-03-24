@@ -24,38 +24,37 @@ alias la="ls -la"
 alias ll="ls -l"
 alias lah="ls -laH"
 
-alias gcc="gcc-14"
-alias nano="/usr/local/bin/nano -f ~/.config/nano/nanorc"
-
 alias grep="grep --color=always -E"
 alias less="less -K --mouse"
+
+# dont wanna hardcode this but need this to work rn
+alias readelf="/opt/homebrew/Cellar/binutils/2.45.1/bin/readelf"
+
+#ZSH_DISABLE_COMPFIX=true
 
 (( $+aliases[run-help] )) && unalias run-help
 autoload -Uz run-help
 
 # completion for hidden files
-autoload -U compinit; compinit
+autoload -U compinit; compinit -u
 
 # with hidden files
 _comp_options+=(globdots)
 
-source $ZDOTDIR/zsh_sources/async_prompt.zsh
-source $ZDOTDIR/zsh_sources/git.zsh
-source $ZDOTDIR/zsh_sources/prompt_info_functions.zsh
+# Needed for my theme to work, ripped from OMZ
+source $ZDOTDIR/zsh_sources/plugins/async_prompt.zsh
+source $ZDOTDIR/zsh_sources/plugins/git.zsh
+source $ZDOTDIR/zsh_sources/plugins/prompt_info_functions.zsh
+source $ZDOTDIR/zsh_sources/plugins/virtualenv.plugin.zsh
 
-# load the theme
-fpath=($ZDOTDIR/zsh_sources $fpath)
-# autoload -Uz og.zsh-theme
-# source $ZDOTDIR/zsh_sources/og.zsh-theme
-# autoload -Uz reverse_return_code.zsh-theme
-# source $ZDOTDIR/zsh_sources/reverse_return_code.zsh-theme
-autoload -Uz stacked.zsh-theme
-source $ZDOTDIR/zsh_sources/stacked.zsh-theme
+# Load the theme
+source $ZDOTDIR/zsh_sources/themes/stacked.zsh-theme
+# source $ZDOTDIR/zsh_sources/themes/stacked_git.zsh-theme
+# source $ZDOTDIR/zsh_sources/themes/gnzh.zsh-theme
+# source $ZDOTDIR/zsh_sources/themes/agnoster.zsh-theme
 
-# source zsh-autosuggestions
+# source plugins
 source $ZDOTDIR/zsh_sources/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# source zsh-syntax-highlighting
 source $ZDOTDIR/zsh_sources/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # set alias for d to print the directory stack
@@ -132,10 +131,13 @@ export GREP_OPTIONS='--color=auto'
 # fzf
 #source $ZDOTDIR/zsh_sources/fzf_funcs.zsh
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='fd --type f --type d --hidden --follow'
 export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/fzf_default_opts
-
-# zsh-interactive-cd
-source $ZDOTDIR/zsh_sources/zsh-interactive-cd.plugin.zsh
 
 # Use bat for man
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
