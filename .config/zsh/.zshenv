@@ -3,7 +3,7 @@
 # nvim = Neovim
 # nano = Nano
 # vim = Vim
-export EDITOR="code"
+export EDITOR="nano"
 export VISUAL="code"
 
 # enable mouse scrolling in less command

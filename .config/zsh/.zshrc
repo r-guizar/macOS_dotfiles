@@ -10,12 +10,10 @@ setopt PUSHD_IGNORE_DUPS
 # do not print the directory stack after pushd or popd
 setopt PUSHD_SILENT
 
+# auto change dirs
+setopt AUTO_CD
+
 #  alias
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias ~="cd ~"
-alias /="cd /"
 alias -- -="cd -"
 alias cl="clear"
 
