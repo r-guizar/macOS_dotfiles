@@ -23,6 +23,7 @@
 
 (defalias
 	hy (tap-dance 250 ($hyper $meh))
+	g (tap-hold $tap-time $hold-time g (macro C-a))
 	spl (tap-hold $tap-time $hold-time spc (layer-while-held nav))
 
 	a (tap-hold $tap-time $hold-time a ‹⌃)
