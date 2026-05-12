@@ -44,9 +44,9 @@
 	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
 	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
 	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
-	@hy	@a	@s	@d	@f	@g	h	@j	@k	@l	@;	'		↵
-	⇪		z	x	c	v	b	n	m	,	.	/		⇧›
-	fn	XX	XX	@hy			@spl		XX	XX	←  ↑  ↓  →
+	XX	@a	@s	@d	@f	@g	h	@j	@k	@l	@;	'		↵
+	@cw		z	x	c	v	b	n	m	,	.	/		⇧›
+	fn	XX	@hy	@hy			@spl		XX	XX	←  ↑  ↓  →
 )
 
 (deflayer nav
@@ -54,6 +54,6 @@
 	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
 	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
 	XX	@a	@s	@d	@cw	g	←	↑	↓	→	;	'		↵
-	⇪		z	x	@cp	v	b	n	⌫	,	.	/		⇧›
+	XX		z	x	@cp	v	b	n	⌫	,	.	/		⇧›
 	fn	XX	XX	XX			spc			XX	XX	←  ↑  ↓  →	
 )
