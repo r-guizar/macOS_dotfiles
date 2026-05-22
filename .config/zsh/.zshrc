@@ -130,7 +130,8 @@ export GREP_OPTIONS='--color=auto'
 #source $ZDOTDIR/zsh_sources/fzf_funcs.zsh
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='fd --type f --type d --hidden --follow'
-export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/fzf_default_opts
+export FZF_DEFAULT_OPTS_FILE="$CONFIG/fzf/fzf_default_opts"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Use bat for man
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"

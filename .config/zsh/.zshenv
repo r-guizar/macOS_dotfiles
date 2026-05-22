@@ -29,3 +29,5 @@ export PATH="$PATH:/Users/richardguizar/.spicetify"
 
 #export pwndbg
 export PATH="$PATH:/Users/richardguizar/pwndbg/bin"
+
+export CONFIG="$HOME/.config"
