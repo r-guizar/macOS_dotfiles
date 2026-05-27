@@ -17,10 +17,12 @@ setopt AUTO_CD
 alias -- -="cd -"
 alias cl="clear"
 
-alias ls="ls -G"
-alias la="ls -la"
-alias ll="ls -l"
-alias lah="ls -laH"
+# alias ls="ls -G"
+# alias la="ls -la"
+# alias ll="ls -l"
+# alias lah="ls -laH"
+alias ls="eza"
+alias lsa="eza --icons --group-directories-first -labi"
 
 alias grep="grep --color=always -E"
 alias less="less -K --mouse"
