@@ -9,9 +9,9 @@ fi
 # fd - cd to selected directory
 base_dir="${1:-./}"
 
-dir=$(fd --hidden --max-depth 10 --type d . "$base_dir" \
+dir=$(fd --hidden --max-depth 10 --type d --exclude Qt . "$base_dir" \
   | sed "s|^$HOME|~|" \
-  | fzf --tmux +m)
+  | fzf --tmux center,80%,border-native +m)
 
 if [ "${dir#*~}" != "$dir" ]; then
   tilde="~"

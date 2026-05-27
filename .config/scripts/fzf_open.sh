@@ -6,12 +6,12 @@ if [ -n "$TMUX" ]; then
     cd "$pane_path" || exit 1
 fi
 
-file=$(fd --hidden --type f . . \
-  | fzf --tmux +m \
-  --preview='bat --line-range=:100 {}' \
+file=$(fd --hidden --type f --exclude Qt . . \
+  | fzf +m \
+  --tmux center,80%,border-native \
+  --preview='bat -r :$((FZF_PREVIEW_LINES - 5)) -s --color always {}' \
   --preview-border=rounded \
   --bind 'focus:transform-preview-label:[[ -n {} ]] && printf "╢ Previewing [%s] ╟" {}' \
-  --preview-window='~4' \
   --color 'preview-border:#30ff00,preview-label:#30ff00,preview-fg:#ffffff' \
   --bind 'focus:+transform-header:file --brief {} || echo "No file selected"' \
   --header-label="╢ File Type ╟" \
