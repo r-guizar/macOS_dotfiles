@@ -27,7 +27,7 @@ alias less="less -K --mouse"
 alias bat="bat -P"
 
 # dont wanna hardcode this but need this to work rn
-alias readelf="/opt/homebrew/Cellar/binutils/2.45.1/bin/readelf"
+alias readelf="$HOMEBREW_CELLAR//binutils/2.45.1/bin/readelf"
 
 #ZSH_DISABLE_COMPFIX=true
 
@@ -130,7 +130,7 @@ export GREP_OPTIONS='--color=auto'
 # fzf
 #source $ZDOTDIR/zsh_sources/fzf_funcs.zsh
 source <(fzf --zsh)
-export FZF_DEFAULT_COMMAND='fd --type f --type d --hidden --follow --exclude Qt'
+export FZF_DEFAULT_COMMAND='fd --type f --type d --hidden --follow --exclude Qt --exclude /System'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS_FILE="$CONFIG/fzf/fzf_default_opts"
 
