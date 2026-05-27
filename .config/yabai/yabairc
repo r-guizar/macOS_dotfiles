@@ -63,7 +63,7 @@ yabai -m config right_padding 3
 yabai -m config window_gap 5
 
 # Window shadow
-# yabai -m config window_shadow on
+yabai -m config window_shadow on
 
 # These are only for multi montior setups
 # display_arrangement_order

@@ -3,8 +3,11 @@
 
 ### Misc ###
 
+# lock screen
+hyper - x : osascript -e 'tell application "System Events" to keystroke "q" using {command down, control down}'
+
 # sleep
-hyper - x : osascript -e 'tell application "System Events" to sleep'
+# hyper - x : osascript -e 'tell application "System Events" to sleep'
 
 # fullscreen
 hyper - c : yabai -m window --toggle zoom-fullscreen

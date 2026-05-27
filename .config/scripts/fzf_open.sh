@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# If run from tmux, cd into the pane's current directory
+# If run from tmux, cd into the pane's current directory before opening the file
 if [ -n "$TMUX" ]; then
     pane_path=$(tmux display-message -p -F "#{pane_current_path}")
     cd "$pane_path" || exit 1

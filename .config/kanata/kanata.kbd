@@ -17,7 +17,7 @@
 	shift-time 175
 	hyper (multi lmet lalt lshft lctl)
 	meh (multi lalt lshft lctl)
-	shifted-list (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 bspc del kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 up down left right)
+	shifted-list (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 bspc del kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 up down left right ` - = [ ] \ ; ' , . /)
 	non-terminal-list (spc lmet lalt lctl)
 )
 
@@ -32,7 +32,7 @@
 	f (tap-hold $tap-time $shift-time f ‹⇧)
 
 	j (tap-hold $tap-time $shift-time j ⇧›)
-	k (tap-hold $tap-time $hold-time k ⌘›)
+	k (tap-hold $tap-time 300 k ⌘›)			;; I end up rolling my k's a lot so this is to prevent accidental cmd activations
 	l (tap-hold $tap-time $hold-time l ⌥›)
 	; (tap-hold $tap-time $hold-time ; ‹⌃)
 
@@ -42,7 +42,7 @@
 
 (deflayer base
 	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
-	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
+	`	1	2	3	4	5	6	7	8	9	0	-	=	XX
 	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
 	XX	@a	@s	@d	@f	@g	h	@j	@k	@l	@;	'		↵
 	@cw		z	x	c	v	b	n	m	,	.	/		⇧›
@@ -51,7 +51,7 @@
 
 (deflayer nav
 	esc	🔅	🔆	_	_	_	_	◀◀	▶⏸	▶▶	🔇	🔉	🔊
-	`	1	2	3	4	5	6	7	8	9	0	-	=	⌫
+	`	1	2	3	4	5	6	7	8	9	0	-	=	XX
 	↹	q	w	e	r	t	y	u	i	o	p	[	]	\
 	XX	@a	@s	@d	@cw	g	←	↑	↓	→	;	'		↵
 	XX		z	x	@cp	v	b	n	⌫	,	.	/		⇧›

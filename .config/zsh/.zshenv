@@ -10,10 +10,10 @@ export VISUAL="code"
 # export LESS="-R"
 
 # set maximum command history for in-memory history during session
-export HISTSIZE=1000
+export HISTSIZE=10000
 
 # set maximum command history for on-disk history when session ends
-export SAVEHIST=1000
+export SAVEHIST=10000
 
 # fix pip not being found in the terminal
 export PATH="/Users/richardguizar/Library/Python/3.8/bin:$PATH"
@@ -27,7 +27,11 @@ export PATH="$HOME/bin:$PATH"
 # export spicetify
 export PATH="$PATH:/Users/richardguizar/.spicetify"
 
-#export pwndbg
+# export pwndbg
 export PATH="$PATH:/Users/richardguizar/pwndbg/bin"
 
+# config dir
 export CONFIG="$HOME/.config"
+
+# export Ghidra dir path for pyghidra
+#GHIDRA_INSTALL_DIR=~/Desktop/Ghidra_12.0
