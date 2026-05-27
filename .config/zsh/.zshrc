@@ -22,7 +22,7 @@ alias cl="clear"
 # alias ll="ls -l"
 # alias lah="ls -laH"
 alias ls="eza"
-alias lsa="eza --icons --group-directories-first -labi"
+alias lsa="eza --icons --group-directories-first -lai"
 
 alias grep="grep --color=always -E"
 alias less="less -K --mouse"
