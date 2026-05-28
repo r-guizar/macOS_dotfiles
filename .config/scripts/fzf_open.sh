@@ -7,6 +7,15 @@ if [ -n "$TMUX" ]; then
 fi
 
 file=$(fd --hidden --type f --exclude Qt . . \
+  --exclude "*.so" --exclude "*.a" --exclude "*.o" --exclude "*.out" --exclude "*.dylib" \
+  --exclude "*.exe" --exclude "*.bin" --exclude "*.dll" --exclude "*.sys" --exclude "*.pyc" \
+  --exclude "*.pyo" --exclude "*.jar" --exclude "*.zip" --exclude "*.tar" --exclude "*.gz" \
+  --exclude "*.7z" --exclude "*.xz" --exclude "*.rar" --exclude "*.bz2" --exclude "*.ttf" \
+  --exclude "*.otf" --exclude "*.pdf" --exclude "*.mov" --exclude "*.png" --exclude "*.jpg" \
+  --exclude "*.gif" --exclude "*.webp" --exclude "*.ico" --exclude "*.mp3" --exclude "*.mp4" \
+  --exclude "*.wav" --exclude "*.strings" --exclude "*.db" --exclude "*.DS_Store"   --exclude "*.db-wal" \
+  --exclude "*.db-shm" --exclude "*.localized" --exclude "*.lock" --exclude "*.CFUserTextEncoding" \
+  --exclude "*.musicdb" --exclude "*.pub" \
   | fzf +m \
   --tmux center,80%,border-native \
   --preview='bat -r :$((FZF_PREVIEW_LINES - 5)) -s --color always {}' \
